@@ -220,6 +220,7 @@ class Line(object):
         """
         self.start = Point.clone(start)
         self.end = Point.clone(end)
+        self.number_of_clones = 0
 
         # --------------------------------------------------------------
         # DONE: 3.
@@ -332,6 +333,7 @@ class Line(object):
         """
 
         line = Line(self.start, self.end)
+        self.number_of_clones = self.number_of_clones + 1
         return line
 
         # --------------------------------------------------------------
@@ -447,8 +449,13 @@ class Line(object):
         Type hints:
           :rtype: float
         """
+
+        distance = math.sqrt((self.end.x - self.start.x) ** 2 + (self.end.y
+                                                                 - self.start.y) ** 2)
+        return distance
+
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -487,8 +494,11 @@ class Line(object):
         Type hints:
           :rtype: int:
         """
+
+        return self.number_of_clones
+
         # --------------------------------------------------------------
-        # TODO: 8.
+        # DONE: 8.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -521,6 +531,9 @@ class Line(object):
           :type  other_line: Line
           :rtype: Line:
         """
+
+        
+
         # --------------------------------------------------------------
         # TODO: 9.
         #   a. READ the above specification, including the Example.
