@@ -218,6 +218,10 @@ class Line(object):
           :type start: Point
           :type end:   Point
         """
+        self.start = start
+        self.end = end
+        self.original_start = self.start
+        self.original_end = self.end
         self.start = Point.clone(start)
         self.end = Point.clone(end)
         self.number_of_clones = 0
@@ -608,8 +612,13 @@ class Line(object):
         Type hints:
           :rtype: Point
         """
+
+        midpoint = Point((self.start.x + self.end.x) / 2, (self.start.y +
+                                                           self.end.y) / 2)
+        return midpoint
+
         # --------------------------------------------------------------
-        # TODO: 11.
+        # DONE: 11.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -644,41 +653,50 @@ class Line(object):
           :type  line2: Line
           :rtype: bool
         """
-        # --------------------------------------------------------------
-        # TODO: 12.
-        #   a. READ the above specification, including the Example.
-        #        ** ASK QUESTIONS AS NEEDED. **
-        #        ** Be sure you understand it, ESPECIALLY the Example.
-        #   b. Implement and test this method.
-        #        The tests are already written (below).
-        #        They include the Example in the above doc-string.
-        # --------------------------------------------------------------
-        ################################################################
-        #
-        # IMPORTANT: When you test whether two FLOATING POINT numbers
-        #   are "equal", you must ROUND each to (say) 12 decimal places.
-        #   Otherwise, you risk the imprecision of floating-point
-        #   arithmetic biting you.  For example, in REAL arithmetic,
-        #         1 / (24 * math.pi - 20 * math.pi)
-        #   and
-        #         3 / (72 * math.pi - 60 * math.pi)
-        #   are equal.  But in FLOATING point arithmetic, they are:
-        #         0.07957747154594767
-        #   and
-        #         0.07957747154594765
-        #   respectively (hence NOT equal).
-        #   Try it out if you don't believe me!
-        #
-        # IMPORTANT BOTTOM-LINE:  When you want to test whether
-        # two FLOATING POINT numbers  a  and  b  are the same,
-        #   DON'T use:               a == b
-        #   INSTEAD use:  round(a, 12) == round(b, 12)
-        #
-        # The latter compares the numbers rounded to 12 decimal places
-        # which (usually) is adequate to ignore floating-point errors
-        # and (usually) adequate to distinguish numbers that really
-        # are different from each other.
-        ################################################################
+
+        slope1 = self.slope()
+        slope2 = line2.slope()
+
+        if round(slope1, 12) == round(slope2, 12):
+            return True
+        else:
+            return False
+
+            # --------------------------------------------------------------
+            # DONE: 12.
+            #   a. READ the above specification, including the Example.
+            #        ** ASK QUESTIONS AS NEEDED. **
+            #        ** Be sure you understand it, ESPECIALLY the Example.
+            #   b. Implement and test this method.
+            #        The tests are already written (below).
+            #        They include the Example in the above doc-string.
+            # --------------------------------------------------------------
+            ################################################################
+            #
+            # IMPORTANT: When you test whether two FLOATING POINT numbers
+            #   are "equal", you must ROUND each to (say) 12 decimal places.
+            #   Otherwise, you risk the imprecision of floating-point
+            #   arithmetic biting you.  For example, in REAL arithmetic,
+            #         1 / (24 * math.pi - 20 * math.pi)
+            #   and
+            #         3 / (72 * math.pi - 60 * math.pi)
+            #   are equal.  But in FLOATING point arithmetic, they are:
+            #         0.07957747154594767
+            #   and
+            #         0.07957747154594765
+            #   respectively (hence NOT equal).
+            #   Try it out if you don't believe me!
+            #
+            # IMPORTANT BOTTOM-LINE:  When you want to test whether
+            # two FLOATING POINT numbers  a  and  b  are the same,
+            #   DON'T use:               a == b
+            #   INSTEAD use:  round(a, 12) == round(b, 12)
+            #
+            # The latter compares the numbers rounded to 12 decimal places
+            # which (usually) is adequate to ignore floating-point errors
+            # and (usually) adequate to distinguish numbers that really
+            # are different from each other.
+            ################################################################
 
     def reset(self):
         """
@@ -709,8 +727,12 @@ class Line(object):
             print(line1)  # Should print: Line[(-3, -4), (3, 4)]
             print(line2)  # Should print: Line[(0, 1), (10, 20)]
         """
+
+        self.start = self.original_start
+        self.end = self.original_end
+
         # --------------------------------------------------------------
-        # TODO: 13.
+        # DONE: 13.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
