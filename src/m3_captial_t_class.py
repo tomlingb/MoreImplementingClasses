@@ -29,9 +29,11 @@ def run_test_simple_t():
     window = rg.RoseWindow(600, 400, 'Test 1 - Simple Ts')
     t1 = CapitalT(rg.Point(300, 50), 100, 200, 20)
     print("Expected: Point(250.0, 40.0) Point(350.0, 60.0)")
-    print("Actual:  ", t1.h_rect.get_upper_left_corner(), t1.h_rect.get_lower_right_corner())
+    print("Actual:  ", t1.h_rect.get_upper_left_corner(),
+          t1.h_rect.get_lower_right_corner())
     print("Expected: Point(290.0, 40.0) Point(310.0, 240.0)")
-    print("Actual:  ", t1.v_rect.get_upper_left_corner(), t1.v_rect.get_lower_right_corner())
+    print("Actual:  ", t1.v_rect.get_upper_left_corner(),
+          t1.v_rect.get_lower_right_corner())
     t1.attach_to(window)
     t2 = CapitalT(rg.Point(150, 150), 100, 150, 40)
     t2.attach_to(window)
