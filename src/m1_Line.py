@@ -532,10 +532,15 @@ class Line(object):
           :rtype: Line:
         """
 
-
+        start = Point(self.start.x + other_line.start.x, self.start.y +
+                      other_line.start.y)
+        end = Point(self.end.x + other_line.end.x, self.end.y +
+                    other_line.end.y)
+        line = Line(start, end)
+        return line
 
         # --------------------------------------------------------------
-        # TODO: 9.
+        # DONE: 9.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -568,8 +573,16 @@ class Line(object):
           :type  other_line: Line
           :rtype: Line:
         """
+
+        start = Point(self.start.x - other_line.start.x, self.start.y -
+                      other_line.start.y)
+        end = Point(self.end.x - other_line.end.x, self.end.y -
+                    other_line.end.y)
+        line = Line(start, end)
+        return line
+
         # --------------------------------------------------------------
-        # TODO: 10.
+        # DONE: 10.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
