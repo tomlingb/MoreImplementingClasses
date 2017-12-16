@@ -91,7 +91,6 @@ def main():
 ########################################################################
 
 class Baby(object):
-
     def __init__(self, name):
         self.name = name
         print('Hello baby', self.name)
@@ -100,7 +99,6 @@ class Baby(object):
         print('Thank you for feeding baby', self.name)
 
     def hour_passes(self):
-        
 
 
 # ----------------------------------------------------------------------
