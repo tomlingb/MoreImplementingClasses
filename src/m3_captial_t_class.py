@@ -206,7 +206,7 @@ class CapitalT(object):
           :type outline_color: str
         """
 
-        
+
 
         # --------------------------------------------------------------
         # TODO: 5.
