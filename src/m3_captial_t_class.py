@@ -15,9 +15,9 @@ def main():
     # --------------------------------------------------------------
 
     run_test_simple_t()
-    # run_test_set_colors()
-    # run_test_move_by()
-    # run_test_clone()
+    run_test_set_colors()
+    run_test_move_by()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -141,7 +141,8 @@ class CapitalT(object):
                                  intersection_center.y - letter_thickness / 2)
         hrect_corner2 = rg.Point(intersection_center.x + width / 2,
                                  intersection_center.y + letter_thickness / 2)
-        vrect_corner1 = rg.Point(intersection_center.x - letter_thickness / 2,
+        vrect_corner1 = rg.Point(intersection_center.x - letter_thickness
+                                 / 2,
                                  intersection_center.y - letter_thickness / 2)
         vrect_corner2 = rg.Point(
             intersection_center.x + letter_thickness / 2,
@@ -206,10 +207,13 @@ class CapitalT(object):
           :type outline_color: str
         """
 
-
+        self.h_rect.fill_color = fill_color
+        self.h_rect.outline_color = outline_color
+        self.v_rect.fill_color = fill_color
+        self.v_rect.outline_color = outline_color
 
         # --------------------------------------------------------------
-        # TODO: 5.
+        # DONE: 5.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
@@ -238,8 +242,12 @@ class CapitalT(object):
           :type dx: int
           :type dy: int
         """
+
+        self.h_rect.move_by(dx, dy)
+        self.v_rect.move_by(dx, dy)
+
         # --------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
@@ -266,6 +274,9 @@ class CapitalT(object):
         Type hints:
           :rtype: CapitalT
         """
+
+        
+
         # --------------------------------------------------------------
         # TODO: 7.
         #   READ the above specification, including the Example.
