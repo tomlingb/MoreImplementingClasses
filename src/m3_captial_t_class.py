@@ -277,11 +277,15 @@ class CapitalT(object):
 
         center = self.h_rect.get_center()
 
-        return CapitalT(center, self.h_rect.get_width(),
-                        self.v_rect.get_height(), self.h_rect.get_height())
+        t = CapitalT(center, self.h_rect.get_width(),
+                     self.v_rect.get_height(), self.h_rect.get_height())
+        fill = self.h_rect.fill_color
+        outline = self.h_rect.outline_color
+        t.set_colors(fill, outline)
+        return t
 
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
