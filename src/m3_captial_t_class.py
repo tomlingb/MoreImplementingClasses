@@ -276,7 +276,7 @@ class CapitalT(object):
         """
 
         center = self.h_rect.get_center()
-        
+
         return CapitalT(center, self.h_rect.get_width(),
                         self.v_rect.get_height(), self.h_rect.get_height())
 
