@@ -14,7 +14,7 @@ def main():
     #   Uncomment only 1 test at a time as you develop your code.
     # --------------------------------------------------------------
 
-    # run_test_simple_t()
+    run_test_simple_t()
     # run_test_set_colors()
     # run_test_move_by()
     # run_test_clone()
@@ -141,11 +141,16 @@ class CapitalT(object):
                                  intersection_center.y - letter_thickness / 2)
         hrect_corner2 = rg.Point(intersection_center.x + width / 2,
                                  intersection_center.y + letter_thickness / 2)
+        vrect_corner1 = rg.Point(intersection_center.x - letter_thickness / 2,
+                                 intersection_center.y - letter_thickness / 2)
+        vrect_corner2 = rg.Point(
+            intersection_center.x + letter_thickness / 2,
+            intersection_center.y + (height - letter_thickness / 2))
         self.h_rect = rg.Rectangle(hrect_corner1, hrect_corner2)
-        self.v_rect = rg.Rectangle()
+        self.v_rect = rg.Rectangle(vrect_corner1, vrect_corner2)
 
         # --------------------------------------------------------------
-        # TODO: 3.
+        # DONE: 3.
         #   READ the above specification, including the Example.
         #   Implement this method
         #   Note: you will need to also implement attach_to before testing
@@ -170,12 +175,11 @@ class CapitalT(object):
           :type window: rg.RoseWindow
         """
 
-        window = rg.RoseWindow()
-        self.h_rect.attach_to(window)
         self.v_rect.attach_to(window)
+        self.h_rect.attach_to(window)
 
         # --------------------------------------------------------------
-        # TODO: 4.
+        # DONE: 4.
         #   READ the above specification, including the Example.
         #   Implement and test this method by looking at the console and
         #     the graphics window (compare it to simple_t.pdf)
@@ -201,6 +205,9 @@ class CapitalT(object):
           :type fill_color: str
           :type outline_color: str
         """
+
+        
+
         # --------------------------------------------------------------
         # TODO: 5.
         #   READ the above specification, including the Example.
